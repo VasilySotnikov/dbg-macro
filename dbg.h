@@ -435,7 +435,8 @@ template <typename T>
 inline typename std::enable_if<
     !detail::is_container<const T&>::value &&
         !detail::is_container_adapter<const T&>::value &&
-        !std::is_enum<T>::value,
+        !std::is_enum<T>::value &&
+        !std::is_floating_point<T>::value,
     bool>::type
 pretty_print(std::ostream& stream, const T& value);
 
@@ -529,7 +530,8 @@ template <typename T>
 inline typename std::enable_if<
     !detail::is_container<const T&>::value &&
         !detail::is_container_adapter<const T&>::value &&
-        !std::is_enum<T>::value,
+        !std::is_enum<T>::value &&
+        !std::is_floating_point<T>::value,
     bool>::type
 pretty_print(std::ostream& stream, const T& value) {
   pretty_print(stream, value,
