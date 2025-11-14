@@ -515,6 +515,7 @@ pretty_print(std::ostream& stream, ContainerAdapter value);
 
 template <typename T>
 inline void pretty_print(std::ostream& stream, const T& value, std::true_type) {
+  stream.copyfmt(g_floating_point_format);
   stream << value;
 }
 
